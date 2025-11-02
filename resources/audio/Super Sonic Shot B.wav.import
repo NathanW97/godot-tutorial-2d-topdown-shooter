@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cee73hqt41opn"
+path="res://.godot/imported/Super Sonic Shot B.wav-335ccf1e94566a2046b50989e0810695.sample"
+
+[deps]
+
+source_file="res://resources/audio/Super Sonic Shot B.wav"
+dest_files=["res://.godot/imported/Super Sonic Shot B.wav-335ccf1e94566a2046b50989e0810695.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

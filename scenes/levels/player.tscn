@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://pef57kr0vo1e"]
+
+[ext_resource type="Texture2D" uid="uid://bfq2yqv1h304n" path="res://resources/graphics/player/player.png" id="1_rggrj"]
+[ext_resource type="Texture2D" uid="uid://bt2mtvim4ideq" path="res://resources/graphics/projectiles/blue.png" id="2_5pofk"]
+[ext_resource type="Script" uid="uid://bfuuhdvq3cbx3" path="res://scenes/levels/player_action.gd" id="2_028os"]
+[ext_resource type="Script" uid="uid://dw5ihuihhltp3" path="res://scripts/player/player_movement.gd" id="2_fdfyx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5pofk"]
+radius = 27.721827
+
+[node name="Player" type="CharacterBody2D"]
+
+[node name="PlayerMovement" type="Node" parent="."]
+script = ExtResource("2_fdfyx")
+
+[node name="PlayerAction" type="Node" parent="."]
+script = ExtResource("2_028os")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2.345, 2.345)
+shape = SubResource("CircleShape2D_5pofk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, -38)
+texture = ExtResource("1_rggrj")
+
+[node name="FirePoint" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Sprite2D" type="Sprite2D" parent="FirePoint"]
+position = Vector2(18, -185)
+texture = ExtResource("2_5pofk")

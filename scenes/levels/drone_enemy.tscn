@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://dofuiuju1xxs3"]
+
+[ext_resource type="Texture2D" uid="uid://dpxjolpo2bo7e" path="res://resources/graphics/enemies/drone.png" id="1_i58rf"]
+[ext_resource type="Script" uid="uid://bkuccxu36g3ev" path="res://scenes/levels/drone_enemy.gd" id="1_qux6v"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qux6v"]
+radius = 73.34848
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j5n2r"]
+radius = 85.146935
+
+[node name="DroneEnemy" type="CharacterBody2D"]
+script = ExtResource("1_qux6v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_qux6v")
+
+[node name="HurtBoxArea2D" type="Area2D" parent="."]
+
+[node name="HurtBoxCollisionShape" type="CollisionShape2D" parent="HurtBoxArea2D"]
+shape = SubResource("CircleShape2D_j5n2r")
+debug_color = Color(0.9942227, 0, 0.2327191, 0.41960785)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_i58rf")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

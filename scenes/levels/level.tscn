@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://ba4ht0yipflq2"]
+
+[ext_resource type="PackedScene" uid="uid://pef57kr0vo1e" path="res://scenes/levels/player.tscn" id="1_377w7"]
+[ext_resource type="PackedScene" uid="uid://bnbkv2jb7o0s1" path="res://scenes/levels/bed.tscn" id="2_bovvr"]
+[ext_resource type="PackedScene" uid="uid://dofuiuju1xxs3" path="res://scenes/levels/drone_enemy.tscn" id="3_b2cq8"]
+
+[node name="Level" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_377w7")]
+position = Vector2(255, 516)
+
+[node name="Bed" parent="." instance=ExtResource("2_bovvr")]
+position = Vector2(883, 594)
+rotation = -1.5707964
+
+[node name="DroneEnemy" parent="." instance=ExtResource("3_b2cq8")]
+position = Vector2(194, 106)
