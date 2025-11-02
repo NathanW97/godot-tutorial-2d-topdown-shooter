@@ -9,7 +9,7 @@ var direction: Vector2 = Vector2(1,0)
 func _ready() -> void:
 	$Timer.start()
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if direction:
 		velocity.x = direction.x * SPEED
 	else:
