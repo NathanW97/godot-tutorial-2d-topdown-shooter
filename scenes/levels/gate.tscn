@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://cv36rfuvtkywa"]
+
+[ext_resource type="Texture2D" uid="uid://rhh8wylkn0e2" path="res://resources/graphics/objects/gate.png" id="1_dhssn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dhssn"]
+size = Vector2(843, 115)
+
+[node name="Gate" type="StaticBody2D"]
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_dhssn")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-113, -86)
+polygon = PackedVector2Array(-257, 861, -1101, 860, -1239, 794, -1311, 667, -1316, -686, 1668, -690, 1671, 607, 1641, 734, 1524, 842, 1334, 864, 607, 862, 607, 627, -253, 626)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(63.5, 604.5)
+shape = SubResource("RectangleShape2D_dhssn")
+debug_color = Color(1, 1, 1, 0.41960785)

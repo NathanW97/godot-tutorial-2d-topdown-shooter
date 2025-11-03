@@ -16,6 +16,14 @@ script = ExtResource("2_fdfyx")
 [node name="PlayerAction" type="Node" parent="."]
 script = ExtResource("2_028os")
 
+[node name="PrimaryTimer" type="Timer" parent="PlayerAction"]
+wait_time = 0.5
+one_shot = true
+
+[node name="SecondaryTimer" type="Timer" parent="PlayerAction"]
+wait_time = 2.0
+one_shot = true
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(2.345, 2.345)
 shape = SubResource("CircleShape2D_5pofk")
@@ -30,3 +38,6 @@ unique_name_in_owner = true
 [node name="Sprite2D" type="Sprite2D" parent="FirePoint"]
 position = Vector2(18, -185)
 texture = ExtResource("2_5pofk")
+
+[connection signal="timeout" from="PlayerAction/PrimaryTimer" to="PlayerAction" method="_on_primary_timer_timeout"]
+[connection signal="timeout" from="PlayerAction/SecondaryTimer" to="PlayerAction" method="_on_secondary_timer_timeout"]
