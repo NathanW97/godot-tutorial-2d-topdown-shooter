@@ -1,14 +1,15 @@
 [gd_scene load_steps=6 format=3 uid="uid://pef57kr0vo1e"]
 
+[ext_resource type="Script" uid="uid://1dfndp15vxmy" path="res://scripts/player/player.gd" id="1_3m52r"]
 [ext_resource type="Texture2D" uid="uid://bfq2yqv1h304n" path="res://resources/graphics/player/player.png" id="1_rggrj"]
-[ext_resource type="Texture2D" uid="uid://bt2mtvim4ideq" path="res://resources/graphics/projectiles/blue.png" id="2_5pofk"]
-[ext_resource type="Script" uid="uid://bfuuhdvq3cbx3" path="res://scenes/levels/player_action.gd" id="2_028os"]
+[ext_resource type="Script" uid="uid://bfuuhdvq3cbx3" path="res://scenes/player_action.gd" id="2_028os"]
 [ext_resource type="Script" uid="uid://dw5ihuihhltp3" path="res://scripts/player/player_movement.gd" id="2_fdfyx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5pofk"]
 radius = 27.721827
 
 [node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_3m52r")
 
 [node name="PlayerMovement" type="Node" parent="."]
 script = ExtResource("2_fdfyx")
@@ -34,10 +35,7 @@ texture = ExtResource("1_rggrj")
 
 [node name="FirePoint" type="Node2D" parent="."]
 unique_name_in_owner = true
-
-[node name="Sprite2D" type="Sprite2D" parent="FirePoint"]
-position = Vector2(18, -185)
-texture = ExtResource("2_5pofk")
+position = Vector2(21, -143)
 
 [connection signal="timeout" from="PlayerAction/PrimaryTimer" to="PlayerAction" method="_on_primary_timer_timeout"]
 [connection signal="timeout" from="PlayerAction/SecondaryTimer" to="PlayerAction" method="_on_secondary_timer_timeout"]

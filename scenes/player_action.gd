@@ -1,6 +1,7 @@
 extends Node
 
 var body: CharacterBody2D
+var firePoint: Node2D
 var canPrimary: bool = true
 var canSeconday: bool = true
 var desiredPrimaryAction: bool = false
@@ -8,9 +9,13 @@ var desiredSecondaryAction: bool = false
 @export_range(0,2,0.1) var cooldownPrimary: float = 0.5
 @export_range(0,4,0.5) var cooldownSecondary: float = 2
 
+signal primary_triggered(firePoint:Node2D)
+signal secondary_triggered(firePoint:Node2D)
+
 
 func _ready() -> void:
 	body = get_parent()  # CharacterBody2D of the "Player"
+	firePoint = %FirePoint
 
 func _process(_delta: float) -> void:
 	if (Input.is_action_just_pressed("primary_fire") and canPrimary):
@@ -22,14 +27,14 @@ func _process(_delta: float) -> void:
 
 func _physics_process(_delta: float) -> void:
 	if (desiredPrimaryAction):
-		print("Shoot_P")
+		primary_triggered.emit(firePoint)
 		primaryFire()
 		desiredPrimaryAction = false
 		canPrimary = false
 		$PrimaryTimer.start(cooldownPrimary)
 	
 	if (desiredSecondaryAction):
-		print("Shoot_S")
+		secondary_triggered.emit(firePoint)
 		secondaryFire()
 		desiredSecondaryAction = false
 		canSeconday = false
