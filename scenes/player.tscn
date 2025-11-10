@@ -35,7 +35,15 @@ texture = ExtResource("1_rggrj")
 
 [node name="FirePoint" type="Node2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(21, -143)
+position = Vector2(20, -133)
+
+[node name="Marker2D" type="Marker2D" parent="FirePoint"]
+
+[node name="Marker2D2" type="Marker2D" parent="FirePoint"]
+position = Vector2(11, 5)
+
+[node name="Marker2D3" type="Marker2D" parent="FirePoint"]
+position = Vector2(-11, 5)
 
 [connection signal="timeout" from="PlayerAction/PrimaryTimer" to="PlayerAction" method="_on_primary_timer_timeout"]
 [connection signal="timeout" from="PlayerAction/SecondaryTimer" to="PlayerAction" method="_on_secondary_timer_timeout"]
