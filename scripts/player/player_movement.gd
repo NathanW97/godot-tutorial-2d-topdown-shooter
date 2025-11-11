@@ -11,10 +11,16 @@ var _input_vector := Vector2.ZERO
 var _maxSpeedChange: float
 
 func _ready() -> void:
-	body = get_parent()  # CharacterBody2D of the "Player"
+	body = get_parent() as CharacterBody2D # CharacterBody2D of the "Player"
 
 
 func _process(_delta: float) -> void:
+	
+	# Moveing to Mouse Point
+	#body.look_at(body.get_global_mouse_position())
+	body.rotation = (body.get_global_mouse_position()-body.global_position).angle() + PI / 2
+	
+	# Movement
 	_input_vector = Input.get_vector("move_left","move_right","move_up","move_down")
 	desiredVelocity = _input_vector.normalized() * maxSpeed
 

@@ -9,6 +9,7 @@
 radius = 27.721827
 
 [node name="Player" type="CharacterBody2D"]
+rotation = 0.9075712
 script = ExtResource("1_3m52r")
 
 [node name="PlayerMovement" type="Node" parent="."]
